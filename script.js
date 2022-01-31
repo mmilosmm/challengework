@@ -95,7 +95,14 @@ checkWinner(avgDolphins, avgKoalas);
 
 //CHALLENGE 2
 
-billValue = 100;
-const calcTip = function(billValue){
-
+const billValue = 100;
+let tips;
+const calcTip = function(price){
+	if (billValue>50 && billValue<=300) {
+tips = billValue * 0.15;
+	}else if(billValue>300){
+tips = billValue*0.2;
+	}
+return `The value of tip is ${tips}`;
 };
+console.log(calcTip(billValue));
