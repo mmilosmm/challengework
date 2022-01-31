@@ -9,12 +9,12 @@
 // BMI = mass / height ** 2 = mass / (height * height)
 
 const markMass = 78;
-const markHeight = 169;
+const markHeight = 1.69;
 const johnMass = 92;
-const johnHeight = 195;
-const markBMI = markMass / markHeight ** markMass / (markHeight * markHeight);
-const johnBMI = johnMass / johnHeight ** johnMass / (johnHeight * johnHeight);
-const comp = (markBMI>johnBMI);
+const johnHeight = 1.95;
+const markBMI = markMass / markHeight ** 2;
+const johnBMI = johnMass / johnHeight ** 2;
+const comp = markBMI>johnBMI;
 console.log(markBMI, johnBMI, comp);
 
 //CHALLENGE 2
@@ -95,14 +95,52 @@ checkWinner(avgDolphins, avgKoalas);
 
 //CHALLENGE 2
 
-const billValue = 100;
+const price = 100;
 let tips;
 const calcTip = function(price){
-	if (billValue>50 && billValue<=300) {
-tips = billValue * 0.15;
-	}else if(billValue>300){
-tips = billValue*0.2;
+	if (price >=50 && price <=300) {
+tips = price * 0.15;
+	}else if(price>300){
+tips = price * 0.2;
+	}else{
+	tips = price * 0.15;
 	}
-return `The value of tip is ${tips}`;
+return tips;
 };
-console.log(calcTip(billValue));
+console.log(calcTip(price));
+
+const bills = [125, 555, 44];
+const moreTips = [calcTip(bills[0]),calcTip(bills[1]),calcTip(bills[2])];
+console.log(moreTips);
+
+const total2 = [calcTip(bills[0])+bills[0],calcTip(bills[1])+bills[1], calcTip(bills[2])+bills[2]];
+console.log(total2);
+
+//CHALLENGE 3
+
+const mark = {
+	firstName: 'Mark',
+	lastName: 'Miller',
+	mass:78,
+	height:1.69,
+	calcBMI: function(){
+		const BMI2 = this.mass / this.height ** 2;
+		return BMI2;
+	},
+}
+const john = {
+	firstName: 'John',
+	lastName: 'Smith',
+	mass:92,
+	height:1.95,
+	calcBMI: function(){
+		const BMI2 = this.mass / this.height ** 2;
+		return BMI2;
+	},
+}
+console.log(mark.calcBMI());
+if(mark.calcBMI() > john.calcBMI()){
+	console.log(`${mark.firstName} has a higher BMI ${mark.calcBMI()} than ${john.calcBMI()}`);
+}else if(mark.calcBMI() < john.calcBMI()){
+	console.log(`${john.firstName} has a higher BMI ${john.calcBMI()} than ${mark.calcBMI()}`)
+}
