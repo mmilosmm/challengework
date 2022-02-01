@@ -144,3 +144,105 @@ if(mark.calcBMI() > john.calcBMI()){
 }else if(mark.calcBMI() < john.calcBMI()){
 	console.log(`${john.firstName} has a higher BMI ${john.calcBMI()} than ${mark.calcBMI()}`)
 }
+
+
+//CHALLENGE 4
+
+const bills2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52, 100];
+const tips2 = [];
+const totals2 = [];
+const calcTip2 = bill2 => bill2*0.15;
+for(let i = 0; i<bills2.length; i++){
+	tips2.push(calcTip2(bills2[i]));
+}
+console.log(tips2);
+console.log(calcTip2(100));
+
+const numbers = [1,2,3,4,5];
+let sum = 0;
+for(let i = 0; i<numbers.length; i++){
+	sum = sum+numbers[i];
+}
+console.log(sum);
+console.log(numbers.length);
+const calcAverage2 = function(arr){
+	return sum / arr.length;
+};
+
+console.log(calcAverage2(tips2));
+
+
+//Developer Skills & Editor Setup
+
+//CHALLENGE 1
+
+let sent = '';
+
+const temperatures = [17, 21, 23];
+const printForecast = function(arr){
+	for(let i = 0;i<arr.length; i++){
+		// console.log(`${arr[i]} in ${i+1} days`);
+		sent = sent+`${arr[i]} in ${i+1} days`;
+		
+	}
+	return sent;
+};
+console.log(printForecast(temperatures));
+
+//JavaScript in the Browser: DOM and Events
+
+//CHALLENGE1
+// let score = 0;
+// document.querySelector('.again').addEventListener('click', function(){
+// 	score = score;
+// 	secretNumber = secretNumber;
+// })
+
+//Data Structures, Modern Operators and Strings
+
+//CHALLENGE1
+
+const game = {
+ team1: 'Bayern Munich',
+ team2: 'Borrussia Dortmund',
+ players: [
+ ['Neuer','Pavard','Martinez','Alaba','Davies','Kimmich','Goretzka','Coman','Muller','Gnarby','Lewandowski',],
+ ['Burki','Schulz','Hummels','Akanji','Hakimi','Weigl','Witsel','Hazard','Brandt','Sancho','Gotze',],
+ ],
+ score: '4:0',
+ scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+ 'Hummels'],
+ date: 'Nov 9th, 2037',
+ odds: {
+ team1: 1.33,
+ x: 3.25,
+ team2: 6.5,
+ },
+ }
+
+const players1 = [...game.players[0]];
+const players2 = [...game.players[1]];
+// console.log(players1);
+// console.log(players2);
+const gk = [players1[0]];
+// console.log(gk);
+const fieldPlayers = [...players1];
+fieldPlayers.shift();
+// console.log(fieldPlayers);
+const allPlayers = [players1, players2];
+console.log(...allPlayers);
+const playersFinal = [players1, 'Thiago', 'Coutinho', 'Perisic'];
+const team1 = game.odds;
+const team2 = game.odds;
+const draw = game.odds;
+
+
+const printGoals = function(...players){
+	for (var i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+    console.log(`${game.scored.length}`)
+    
+  }
+};
+printGoals(game.scored);
+
