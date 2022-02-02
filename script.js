@@ -232,9 +232,8 @@ fieldPlayers.shift();
 const allPlayers = [players1, players2];
 console.log(...allPlayers);
 const playersFinal = [players1, 'Thiago', 'Coutinho', 'Perisic'];
-const team1 = game.odds;
-const team2 = game.odds;
-const draw = game.odds;
+const {team1:homeTeam,x:draw,team2:awayTeam} = game.odds;
+console.log(homeTeam, draw, awayTeam);
 
 
 const printGoals = function(...players){
@@ -245,4 +244,61 @@ const printGoals = function(...players){
   }
 };
 printGoals(game.scored);
+
+//CHALLENGE 2
+
+for(let i = 0; i<game.scored.length;i++){
+	console.log(`goal ${i+1} scored by ${game.scored[i]}`);
+};
+
+let amountsum = 0;
+for (const avgodd of Object.values(game.odds)){
+	amountsum = amountsum + avgodd;
+	// console.log(avgodd);
+};
+
+const avgodd = amountsum / Object.values(game.odds).length;
+console.log(avgodd);
+// console.log(amountsum);
+
+for (const [team, odd] of Object.entries(game.odds)){
+	
+	if(team==='x'){
+		game[team] ='draw';
+	}else{
+		`victory ${game[team]}`;
+	}
+	console.log(`Odd for ${game[team]} is ${odd}`);
+};
+
+const scorers = {
+	Gnarby: 1,
+ 	Hummels: 1,
+ 	Lewandowski: 2
+}
+
+
+//Challenge 4
+
+const ideas = ['underscore_case', 'first_name', 'Some_Variable' 
+,'calculate_AGE', 'delayed_departure'];
+
+const ideas2 = [];
+
+// const allLow = ideas.toLowerCase();
+
+for(const idea of ideas){
+	// loginEmail.toLowerCase();
+	const allLow = idea.toLowerCase();
+	// console.log(allLow);
+	const separ = allLow.split('_');
+	// console.log(separ);
+	const fixed = separ[0]+separ[1].toUpperCase();
+	console.log(fixed);
+	const count = ideas2.push(fixed);
+
+}
+console.log(ideas2);
+
+
 
