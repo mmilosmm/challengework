@@ -302,3 +302,90 @@ console.log(ideas2);
 
 
 
+//Functions
+
+//Challenge 1
+
+const poll = {
+ question: "What is your favourite programming language?",
+ options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+ // This generates [0, 0, 0, 0]. More in the next section!
+ answers: new Array(4).fill(0),
+ registerNewAnswer: function(){
+ 	const answer = Number(
+ 	prompt(`${this.question} \n ${this.options.join('\n')} \n Write option number `)
+ 	);
+ 	console.log(answer);
+ 	typeof answer === 'number' && answer< this.answers.length
+ 	&& this.answers[answer]++;
+ 	// this.displayResults('array');
+ 	this.displayResults('string');
+ },
+ displayResults: function(type = 'array'){
+ 	if(typeof type === 'array'){
+ 	console.log(this.answers);
+ }else if(typeof type === 'string'){
+ 	console.log(`Poll results are ${this.answers.join(', ')}`);
+ }
+ }
+ };
+
+
+
+
+
+ document.querySelector('.answer').addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+ //ARRAYS
+
+ //CHALLENGE 1
+
+ const julia = [3, 5, 2, 12, 7];
+ const kate = [4, 1, 15, 8, 3];
+ const checkDogs = function(arr1, arr2){
+ 	for(const [i,age] of dogsage.entries()){
+ 		// console.log(age);
+ 		// console.log(i+1);
+ 		if(age < 3){
+ 			console.log(`Dog ${i+1} is still a puppy`);
+ 		}else if( age> 3){
+ 			console.log(`Dog ${i+1} is not a puppy and it is ${age} years old`);
+ 		}
+ 	}
+ }
+ const juliacopy = julia.slice(1, -1);;
+ console.log(juliacopy);
+ const dogsage = [...juliacopy, ...kate];
+ console.log(dogsage);
+ checkDogs(juliacopy, kate);
+
+
+ //CHALLENGE 2
+const dogsage2 = [5, 2, 4, 1, 15, 8, 3];
+const dogsage3 = [16, 6, 10, 5, 6, 1, 4];
+const calcAverageHumanAge = function(arr){
+	const humanAges = arr.map(function(age){
+		if(age <= 2){
+		return age*2;
+	}else if(age > 2){
+		return 16 + age * 4;
+	};
+	
+	})
+
+	const adult = humanAges.filter(function(age){
+		return age > 18;
+	})
+
+	const avgAdult = adult.reduce(function(acc, cur){
+	
+	return acc+cur / adult.length;
+}, 0);
+
+
+	console.log(humanAges);
+	console.log(adult);
+	console.log(avgAdult);
+};
+calcAverageHumanAge(dogsage2);
+calcAverageHumanAge(dogsage3);
